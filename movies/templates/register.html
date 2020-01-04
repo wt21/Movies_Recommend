@@ -1,0 +1,246 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/register.css" />
+
+	</head>
+	<body>
+		<div id="box1" class="box">
+			<img id="top-box-img" src="img/logo.png"> 
+			<div id="top-box1">
+			  |&nbsp;&nbsp;用户注册
+			   <a href="login.html" id="mya">已有账号，去登录</a>
+			</div>
+			</div>
+		</div>
+	    <div id="box2" class="box">	
+	    	<form action="" method="post">
+				<table>
+					<tr id="mytr">
+						<td colspan="2" background="img/Image11.png" height="25px"></td>					
+					</tr>
+					<tr>
+						<td class="td1">账号:</td>
+						<td class="td2">
+						  <input type="text" name="username" id="phone" onblur="checkphone()"/>
+						  <span id="phonespan"></span>
+						</td>
+					</tr>
+					<tr>
+						<td class="td1">密码:</td>
+						<td class="td2">
+						  <input type="password" name="password" id="password"/>
+						  <span id=""></span>
+						</td>
+					</tr>
+					<tr>
+						<td class="td1">确认密码:</td>
+						<td class="td2">
+						  <input type="password" name="reqpassword" id="repassword" onblur="checkpassword()"/>
+						  <span id="repasswordspan"></span>
+						</td>
+					</tr>
+					<tr>
+						<td class="td1">邮箱:</td>
+						<td class="td2">
+						  <input type="text" name="email" id="email" onblur="checkemail()"/>
+						  <span id="emailspan"></span>
+						</td>
+					</tr> 
+					<tr>
+						<td class="td1">验证码:</td>
+						<td class="td2">
+						  <input type="text" class="input_yzm" id="yzm" onblur="checkyzm()"/>
+						  <a href="#" id="changeImg">
+							    <canvas class="show-captcha" id="canvas" width="120" height="30"></canvas>
+						  </a>
+						  <span id="yzmspan"></span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><button type="submit">注册</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div id="bottom-box">
+			Copyright © 2019-2020 大数据专业 All Rights Reserved 版权所有  中北大学   联系电话：1707-0541-0542
+		</div>
+		<script type="text/javascript">
+			
+			function show(){
+				if(document.getElementById("top_btn_box").style.display=="none")
+				    {   
+				    	document.getElementById("top_btn_box").style.display = "block";
+				    }
+				    else{
+				        document.getElementById("top_btn_box").style.display = "none";
+				    }
+			}
+			function checkphone(){
+				var phone = document.getElementById("phone").value;
+				var spanNode = document.getElementById("phonespan");
+				var reg = /^1[34578]\d{9}$/;
+				if(phone==""||phone==null){
+					spanNode.innerHTML = "";
+				}else{
+					if(reg.test(phone)){
+					spanNode.innerHTML = "正确".fontcolor("green");
+					return true;
+					}else{
+						spanNode.innerHTML = "错误".fontcolor("red");
+						return false;
+					}
+				}
+				
+			}
+			function checkemail(){
+				var email = document.getElementById("email").value;
+				var spanNode = document.getElementById("emailspan");
+				var reg = /^[a-z0-9]\w+@[a-z0-9]+(\.[a-z]{2,3}){1,2}$/;
+				if(email==""||email==null){
+					spanNode.innerHTML = "";
+				}else{
+					if(reg.test(email)){
+					spanNode.innerHTML = "正确".fontcolor("green");
+					return true;
+					}else{
+						spanNode.innerHTML = "错误".fontcolor("red");
+						return false;
+					}	
+				}
+				
+			}
+			function checkpassword(){
+				var password = document.getElementById("password").value;
+				var spanNode = document.getElementById("repasswordspan");
+				var repassword = document.getElementById("repassword").value;
+				if(password==""||password==null){
+					spanNode.innerHTML = "";
+					return false;
+				}else{
+					if(password == repassword){
+					spanNode.innerHTML = "正确".fontcolor("green");
+					return true;
+					}else{
+						spanNode.innerHTML = "两次密码输入不一致".fontcolor("red");
+						return false;
+					}
+				}
+				
+			}
+			function checkyzm(){
+				var yzm = document.getElementById("yzm").value.toString();
+				var spanNode = document.getElementById("yzmspan");
+				if(yzm==""||yzm==null){
+					spanNode.innerHTML = "";
+					return false;
+				}
+				if(yzm == flag.toString()){
+					spanNode.innerHTML = "正确".fontcolor("green");
+					return true;
+				}else{
+					spanNode.innerHTML = "验证码错误".fontcolor("red");
+					return false;
+				}
+			}
+			function checkAll(){
+		    	var password = checkpassword();
+		    	var email = checkemail();
+		    	var phone = checkphone();
+		    	var yzm = checkyzm();
+		    	if (password&&email&&phone&&yzm) {
+		    		return true;
+		    	} else{
+		    		return false;
+		    	}
+		    	return true;
+		    }
+			$(function(){
+				$("#top_btn_box a").click(function(){
+					$(".input_yzm2").val($(this).text());
+					document.getElementById("top_btn_box").style.display = "none";
+					
+				});
+				
+			})
+			var flag;
+			jQuery(function($){	    
+			    /**生成一个随机数**/
+			    function randomNum(min, max) {
+			        return Math.floor(Math.random() * (max - min) + min);
+			    }
+			    /**生成一个随机色**/
+			    function randomColor(min, max) {
+			        var r = randomNum(min, max);
+			        var g = randomNum(min, max);
+			        var b= randomNum(min, max);
+			        return "rgb(" + r + "," + g + "," + b + ")";
+			    }
+			    var code=drawPic();
+			    document.getElementById("changeImg").onclick = function(e) {
+			        e.preventDefault();
+			        code=drawPic();
+			    }
+			    /**绘制验证码图片**/
+			    function drawPic() {
+			        var canvas = document.getElementById("canvas");
+			        var width = canvas.width;
+			        var height = canvas.height;
+			        //获取该canvas的2D绘图环境 
+			        var ctx = canvas.getContext('2d'); 
+			        ctx.textBaseline ='bottom';
+			        /**绘制背景色**/
+			        ctx.fillStyle = randomColor(180,240);
+			        //颜色若太深可能导致看不清
+			        ctx.fillRect(0,0,width,height);
+			        /**绘制文字**/
+			        var str ='ABCEFGHJKLMNPQRSTWXY123456789';
+			
+			　　　　 var code="";
+			　　　　　//生成四个验证码
+			        for(var i=1;i<=4;i++) {
+			            var txt = str[randomNum(0,str.length)];
+			            code=code+txt;
+			            ctx.fillStyle = randomColor(50,160);
+			            //随机生成字体颜色
+			            ctx.font = randomNum(15,40) +'px SimHei';
+			            //随机生成字体大小
+			            var x =10 +i *20;
+			            var y = randomNum(25,35);
+			            var deg = randomNum(-45,45);
+			            //修改坐标原点和旋转角度
+			            ctx.translate(x, y); 
+			            ctx.rotate(deg * Math.PI /180); 
+			            ctx.fillText(txt,0,0);
+			            //恢复坐标原点和旋转角度
+			            ctx.rotate(-deg * Math.PI /180);
+			            ctx.translate(-x, -y);
+			        }
+			        
+			        /**绘制干扰线**/
+			        for(var i=0;i<3;i++) {
+			            ctx.strokeStyle = randomColor(40, 180);
+			            ctx.beginPath();
+			            ctx.moveTo(randomNum(0,width/2), randomNum(0,height/2));
+			            ctx.lineTo(randomNum(0,width/2), randomNum(0,height));
+			            ctx.stroke();
+			        }
+			        /**绘制干扰点**/
+			        for(var i=0;i <50;i++) {
+			            ctx.fillStyle = randomColor(255);
+			            ctx.beginPath();
+			            ctx.arc(randomNum(0, width), randomNum(0, height),1,0,2* Math.PI);
+			            ctx.fill();
+			        }
+			        flag = code;
+			        return code;
+			    }
+			});
+		</script>
+	</body>
+</html>

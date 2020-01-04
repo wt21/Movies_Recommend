@@ -1,0 +1,124 @@
+#user-listbox{
+        	width:1200px;
+        	margin: 0px;
+        	padding: 0px;
+        	margin-left: 120px;
+        	margin-top: 15px;
+        }
+         #user-listbox1 {
+        	border: 1px solid #EBEBEB;
+        }
+        #td-1{
+        	width:250px;
+        	height: 450px;
+        	background: #F9F2F4;
+        	text-align: center;
+        }
+        #td-2{
+        	width:950px;
+        	height: 450px;
+        	border-left: 1px solid #FFFFFF;
+        }
+        #td-1 ul{
+        	width:100%;
+        	height: 350px;
+        }
+        #td-1 ul li{
+        	width:100%;
+        	height: 20%;
+        }
+        #td-1 ul li a{
+        	width:100%;
+        	height: 100%;
+        	border: 1px solid #C4C4C4;
+        	padding-top: 25px;
+        }
+       
+        #user-listbox1-ul a{
+        	color: #999999;
+        }
+        .user-listbox1-span{
+        	color: #F85D00;
+        }
+        .td-2-box div{
+        	width: 100%;
+        	height: 80%;
+        	padding-left: 35px;
+        }
+        #user-tab1 td{
+        	padding-top: 30px;
+        }
+        .user-tab1-td{
+        	font-size: 19px;
+        	font-family: "Î¢ÈíÑÅºÚ";
+        	font-weight: 500;
+        }
+        .user-tab1-td2{
+        	padding-top: 30px;
+        	font-size: 19px;
+        	font-family: "Î¢ÈíÑÅºÚ";
+        	font-weight: 500;
+        	text-align: center;
+        	width: 210px;
+        }
+        #user-box{
+        	width: 1340px;
+        	height: 540px;
+        	background-color: #F7F7F7;
+        	margin: 50px auto;
+        	padding-top: 30px;
+        }
+        .tab-color{
+        	background-color: #FFFFFF;
+        	height: 100%;
+        	width: 100%;
+        }
+        #tab-1{
+			width:300px;
+			height:200px;
+			border: 1px solid #F8F8F8;
+			text-align: center;
+			margin-left: 190px;
+			margin-top: 30px;
+		}
+		.td-style1{
+			width: 80px;
+			border: 1px solid aliceblue;
+		}
+	    tr{
+			height: 62px;
+		}
+		#tab-1 button{
+			width: 130px;
+			height: 37px;
+		}
+		#tab-1 tr{
+			height: 70px;
+		} 
+		#tab-2{
+			width: 300px;
+			height: 200px;
+			border: 1px solid #F7F7F7;
+		}
+		.td-style2{
+			width: 80px;
+			border-bottom: 1px solid #E3E3E3;
+			text-align: center;
+		}
+		#tab-3{
+			width: 600px;
+			border: 1px solid #F7F7F7;
+		}
+		#tab-3 tr{
+			width: 100%;
+			height: 16px;
+			text-align: center;
+		}
+		#tab-4{
+			width: 600px;
+			border: 1px solid #F7F7F7;
+		}
+		#tab-4  tr{
+			width: 100%;
+			text-align: center;
+		}

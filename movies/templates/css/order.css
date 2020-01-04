@@ -1,0 +1,91 @@
+#car-show{
+				height: 362px;
+				width: 1205px;
+				border: 1px solid #C4C4C4;
+			    margin: 50px auto ;
+			    padding: 0px;
+			}
+			#car-show1{
+				height: 360px;
+				width: 600px;
+				border: 1px solid #C4C4C4;
+			    float: left;
+			}
+			#car-show2{
+				height: 363px;
+				width: 600px;
+				border: 1px solid #C4C4C4;
+			    float: right;
+			}
+			.car-show2-box{
+				height:20%;
+				width: 100%;
+			    padding-top: 19px;
+			    border-bottom: 1px solid #EEEEEE;
+			}
+			.button_style{
+				width: 130px;
+				height: 50px;
+				font-family: "Î¢ÈíÑÅºÚ";
+				font-size: 16px;
+				font-weight: 700;
+				color: #FFFFFF;
+				margin-left: 110px;
+			}
+			#button1{
+				background: #FFAE21;
+			}
+			#button2{
+				background: #F85D00;
+			}
+			#button3{
+				background: #FF5837;
+			}
+			#car-show2-box1{
+				font-size: 25px;
+				color: #000000;
+				font-weight: 400;
+			}
+			#car-show2-box2{
+				font-size: 29px;
+				color: #FF5837;
+				font-weight: 600;
+			}
+			#car-show2-box3{
+				font-size: 19px;
+				color: #ADADAD;
+				font-weight: 300;
+			}
+			#car-show2-box4{
+				font-size: 19px;
+				color: #ADADAD;
+				font-weight: 300;
+				background: #FEF7F2;
+			}
+			#textarea_box{
+				height: 422px;
+				width: 405px;
+				border: 1px solid #E0E0E0;
+			    margin: 10px auto ;
+			    padding: 0px;
+			    font-size: 15px;
+			}
+			#textarea_box button{
+				width: 180px;
+				height: 40px;
+				margin-left: 110px;
+				margin-top: 20px;
+			}
+			h4{
+				font-size: 30px;
+				font-weight: 500;
+				text-align: center;
+			}
+			#car_talk{
+				height: 440px;
+				width: 605px;
+				border: 1px solid #E0E0E0;
+			    margin: 20px auto ;
+			    padding: 0px;
+			    display: none;
+			}
