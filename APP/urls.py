@@ -8,8 +8,9 @@ from APP import views
 urlpatterns = [
     path('hello/',views.hello,name = 'hello'),
     path('login/',views.login,name = 'login'),
+    path('logout',views.logout,name = "logout"),
     path('register/',views.register,name = 'register'),
-    path('checkUser/',views.check_user,name = 'check_user'),
+    # path('checkUser/',views.check_user,name = 'check_user'),
     path('show_index/',views.show_index,name = 'show_index'),
-    path('index/',views.index,name = 'index')
+    path('index/',views.index,name = 'index'),
 ]

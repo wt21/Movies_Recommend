@@ -10,20 +10,27 @@
 </head>
 
 <body>
-	<div class="container-fluid">
+        <div class="container-fluid">
 
 		<!-- 引入header.jsp -->
 		<div class="container-fluid">
 			<div class="col-md-4">
-				<a href="{% url "app:index" %}"><img src={% static "img/logo.png" %} /></a>
+		   <a href="{% url "app:index" %}"><img id="top-box-img" src={% static "img/logo.png" %}></a>
 			</div>
 			<div class="col-md-5">
 				<!--<img src="img/header.png" />-->
 			</div>
 			<div class="col-md-3" style="padding-top:20px">
+
 				<ol class="list-inline">
-					<li><a role="button" class="btn btn-warning" href="{% url "app:login" %}" >登录</a></li>
+				{% if user.username %}
+    				<li><a role="button" class="btn btn-warning" href="#" >欢迎你::{{ user.username }}</a></li>
+					<li><a role="button" class="btn btn-warning" href="{% url "app:logout"%}">退出登录</a></li>
+                {% else %}
+                    <li><a role="button" class="btn btn-warning" href="{% url "app:login" %}" >登录</a></li>
 					<li><a role="button" class="btn btn-warning" href="{% url "app:register"%}">注册</a></li>
+                {% endif %}
+
 				</ol>
 			</div>
 		</div>

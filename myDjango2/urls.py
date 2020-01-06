@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('app/', include(('APP.urls', 'APP'),namespace='app')),
     path('two/',include(('two.urls','two'),namespace = 'two')),
-    re_path(r'^$', views.show_index),
+    re_path(r'^$', views.index),
 ]
