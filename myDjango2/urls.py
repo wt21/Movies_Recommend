@@ -22,6 +22,6 @@ from APP import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('app/', include(('APP.urls', 'APP'),namespace='app')),
-    path('two/',include(('two.urls','two'),namespace = 'two')),
+    path('movie/',include(('movie.urls','movie'),namespace = 'movie')),
     re_path(r'^$', views.index),
 ]

@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+        <script type="text/javascript" src="{% static "js/jquery-3.1.1.js"%}" ></script>
 		<script type="text/javascript" src="{% static "js/jquery-1.11.0.js"%}" ></script>
 		<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}" ></script>
 		<link rel="stylesheet" href="{% static "css/bootstrap.min.css"%}" />
@@ -27,7 +28,7 @@
 					<tr>
 						<td class="td1">账号:</td>
 						<td class="td2">
-						  <input type="text" name="username" id="phone" placeholder = "请输入学号注册" required = "" onblur="checkphone()"/>
+						  <input type="text" name="username" id="phone" placeholder = "请输入学号注册" required = "" onblur="checkphone()">
 						  <span id="phonespan"></span>
 						</td>
 					</tr>
@@ -87,47 +88,54 @@
 			}
 
 
-            function checkphone(){
-				var phone = document.getElementById("phone").value;
-				var spanNode = document.getElementById("phonespan");
-				var reg = /^\d{10}$/;
-				if(phone==""||phone==null){
-					spanNode.innerHTML = "";
-				}else{
-					if(reg.test(phone)){
-					spanNode.innerHTML = "正确".fontcolor("green");
-					return true;
-					}else{
-						spanNode.innerHTML = "错误".fontcolor("red");
-						return false;
-					}
-				}
+            {#function checkphone(){#}
+			{#	var phone = document.getElementById("phone").value;#}
+			{#	var spanNode = document.getElementById("phonespan");#}
+			{#	var reg = /^\d{10}$/;#}
+			{#	if(phone==""||phone==null){#}
+			{#		spanNode.innerHTML = "";#}
+			{#	}else{#}
+			{#		if(reg.test(phone)){#}
+			{#		spanNode.innerHTML = "正确".fontcolor("green");#}
+			{#		return true;#}
+			{#		}else{#}
+			{#			spanNode.innerHTML = "错误".fontcolor("red");#}
+			{#			return false;#}
+			{#		}#}
+			{#	}#}
+            {##}
+			{# }#}
 
-			}
-
-
-            {#function checkphone() {#}
-            {#    var phone = document.getElementById("phone").value;#}
-            {#    var spanNode = document.getElementById("phonespan");#}
-            {#    var reg = /^\d{10}$/;#}
-            {#    if (phone == "" || phone == null) {#}
-            {#        spanNode.innerHTML = "";#}
-            {#    } else {#}
-            {#        $.getJSON("{% url "app:check_user" %}", {'username': username}, function (data) {#}
-            {#            if (reg.test(phone)) {#}
-            {#                if (data["exist"] == 0) {#}
-            {#                    spanNode.innerHTML = "可用".fontcolor("green");#}
-            {#                    return true;#}
-            {#                } else {#}
-            {#                    spanNode.innerHTML = "输入错误或已被注册".fontcolor("red");#}
-            {#                    return false;#}
-            {#                }#}
-            {#            } else {#}
-            {#                spanNode.innerHTML = "输入错误或已被注册".fontcolor("red");#}
-            {#                return false;#}
-            {#            }#}
-            {#        }#}
-            {#    }#}
+            function checkphone() {
+                var phone = document.getElementById("phone").value;
+                var spanNode = document.getElementById("phonespan");
+                var reg = /^\d{10}$/;
+                if (phone == "" || phone == null) {
+                    spanNode.innerHTML = "";
+                } else {
+                    if (reg.test(phone)) {
+                    var xhr = new XMLHttpRequest();
+                    var p = Object();
+                    p = 'username='+phone;
+                    xhr.open('POST',"../checkUser/",true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.send(p);
+                    xhr.onreadystatechange = function () {
+                        if(xhr.responseText == '1'){
+                            spanNode.innerHTML = "账号已存在".fontcolor("red");
+                            return false;
+                        }
+                        else{
+                            spanNode.innerHTML = "正确".fontcolor("green");
+                            return true;
+                        }
+                    }
+            }else{
+                spanNode.innerHTML = "错误".fontcolor("red");
+                return false;
+            }
+            }
+            }
 
 			function checkemail(){
 				var email = document.getElementById("email").value;
@@ -137,6 +145,7 @@
 					spanNode.innerHTML = "";
 				}else{
 					if(reg.test(email)){
+
 					spanNode.innerHTML = "正确".fontcolor("green");
 					return true;
 					}else{

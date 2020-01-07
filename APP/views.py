@@ -52,18 +52,22 @@ def register(request):
         user.save()
         return render(request,"register_success.html")
 
-# def check_user(request):
-#     username = request.GET.get("username")
-#     users = User.objects.filter(username = username)
-#
-#     data = {
-#         "exist":0
-#     }
-#     if users.exists():
-#         data["exist"] = 1
-#     else:
-#         pass
-#     return JsonResponse(data = data)
+def check_user(request):
+    username = request.POST.get("username")
+    users = User.objects.filter(username = username)
+    # data = {
+    #     "exist":0
+    # }
+    # if users.exists():
+    #     data["exist"] = 1
+    #
+    #
+    # return JsonResponse(data = data)
+    if users.exists():
+        print('1')
+        return HttpResponse('1')
+    else:
+        return HttpResponse('0')
 
 # 这个是分类classify的页面，写错名字了
 
