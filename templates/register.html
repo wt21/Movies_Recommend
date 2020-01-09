@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>注册</title>
         <script type="text/javascript" src="{% static "js/jquery-3.1.1.js"%}" ></script>
 		<script type="text/javascript" src="{% static "js/jquery-1.11.0.js"%}" ></script>
 		<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}" ></script>
@@ -159,6 +159,7 @@
 				var password = document.getElementById("password").value;
 				var spanNode = document.getElementById("repasswordspan");
 				var repassword = document.getElementById("repassword").value;
+				xhr.open('POST',"{% url 'app:register' %}",true);
 				if(password==""||password==null){
 					spanNode.innerHTML = "";
 					return false;

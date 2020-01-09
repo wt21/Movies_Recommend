@@ -7,4 +7,6 @@ from movie import views
 
 urlpatterns = [
     path('hi/',views.hi)
+
+
 ]
